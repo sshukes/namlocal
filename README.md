@@ -46,6 +46,13 @@ pip install neural-amp-modeler PySide6 numpy soundfile pydantic
    python -c "import torch; print(torch.cuda.is_available())"
    ```
 
+If you see `ModuleNotFoundError: No module named 'torch'`, install PyTorch first (CPU or GPU wheel) in the active environment and rerun the check:
+```powershell
+pip install torch                # CPU
+pip install torch --index-url https://download.pytorch.org/whl/cu129   # GPU example
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
 You can also run the scripted helper:
 ```powershell
 ./scripts/env_setup.ps1 -UseGpu   # add -UseGpu for GPU, omit for CPU
