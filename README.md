@@ -58,6 +58,21 @@ You can also run the scripted helper:
 ./scripts/env_setup.ps1 -UseGpu   # add -UseGpu for GPU, omit for CPU
 ```
 
+### Using the environment from Visual Studio Code
+- Open the repo folder in VS Code, then use **Ctrl+Shift+P → Python: Select Interpreter** and pick the `namlocal` conda env.
+- In VS Code's integrated terminal, ensure the env is active (prompt shows `(namlocal)`), or run `conda activate namlocal` before any commands.
+- Run dev commands from the repo root in that terminal:
+  ```powershell
+  python -m app.main            # launch the GUI
+  pytest                        # run tests (optional)
+  ```
+- When you're ready to package, run the PyInstaller command from the same activated terminal (see below).
+
+### PATH warnings (pygmentize/pytest not on PATH)
+- If `pip` shows warnings such as `pygmentize.exe` or `pytest.exe` not being on `PATH`, it means the current shell is not using the intended Python environment.
+- Preferred fix: activate the `namlocal` conda env (`conda activate namlocal`) before installing or running anything; the env automatically adds its `Scripts` folder to `PATH`.
+- If you intentionally installed tools to a different Python and need them globally, add the reported `Scripts` directory to your user PATH in Windows (e.g., **System Properties → Environment Variables → PATH → Edit**), then restart the terminal/VS Code so the change applies.
+
 ## Running the app (development)
 ```powershell
 conda activate namlocal
