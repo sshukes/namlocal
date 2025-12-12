@@ -1,0 +1,6 @@
+PySide6>=6.6
+numpy>=1.26
+soundfile>=0.12
+pydantic>=2.6
+torch
+neural-amp-modeler
